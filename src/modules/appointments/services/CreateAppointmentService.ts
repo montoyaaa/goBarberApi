@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import { startOfHour } from 'date-fns';
+import { inject, injectable } from 'tsyringe';
 
 import Appointment from '../infra/typeorm/entities/Appointment';
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
@@ -11,8 +12,12 @@ interface IRequest {
     date: Date;
 }
 
+@injectable()
 class CreateAppointmentService {
-    constructor(private appointmentsRepository: IAppointmentsRepository) {}
+    constructor(
+        @inject('IAppointmentsRepository')
+        private appointmentsRepository: IAppointmentsRepository
+    ) {}
 
     public async execute({
         date,
