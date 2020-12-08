@@ -24,7 +24,16 @@
                 "ts": "never"
             }
         ],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "interface",
+                "prefix": ["I"],
+                "format": ["PascalCase"]
+            }
+        ],
         "prettier/prettier": "error",
+        "no-useless-constructor": "off",
         "class-methods-use-this": "off",
         "no-console": "off",
         "@typescript-eslint/camelcase": "off",
