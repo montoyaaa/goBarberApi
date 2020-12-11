@@ -1,9 +1,9 @@
 import { sign } from 'jsonwebtoken';
+import authConfig from '@config/auth';
 import { injectable, inject } from 'tsyringe';
-import authConfig from '../../../config/auth';
 
-import AppError from '../../../shared/errors/AppError';
-import IUsersRepositoroy from '../repositories/IUsersRepository';
+import AppError from '@shared/errors/AppError';
+import IUsersRepository from '../repositories/IUsersRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
 
 import User from '../infra/typeorm/entities/User';
@@ -12,6 +12,7 @@ interface IRequest {
     email: string;
     password: string;
 }
+
 interface IResponse {
     user: User;
     token: string;
@@ -21,9 +22,9 @@ interface IResponse {
 class AuthenticateUserService {
     constructor(
         @inject('UsersRepository')
-        private usersRepository: IUsersRepositoroy,
+        private usersRepository: IUsersRepository,
 
-        @inject('IHashProvider')
+        @inject('HashProvider')
         private hashProvider: IHashProvider
     ) {}
 
