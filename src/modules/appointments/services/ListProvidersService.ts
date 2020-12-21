@@ -30,8 +30,6 @@ class ListProvidersService {
             });
 
             await this.cacheProvider.save(`providers-list:${user_id}`, users);
-
-            console.log('A query no banco foi feita!');
         }
 
         return users;
