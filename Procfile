@@ -1,3 +1,2 @@
-web: dev:server
-build: build
-start: start
+web: start
+
