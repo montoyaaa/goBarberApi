@@ -36,8 +36,6 @@ describe('ListProviderAppointments', () => {
             day: 20,
         });
 
-        console.log('appointments', appointments);
-
         expect(appointments).toEqual([appointment1, appointment2]);
     });
 });

@@ -12,6 +12,7 @@ let createUser: CreateUserService;
 
 describe('CreateUser', () => {
     beforeEach(() => {
+        fakeCacheProvider = new FakeCacheProvider();
         fakeUsersRepository = new FakeUsersRepository();
         fakeHashProvider = new FakeHashProvider();
         createUser = new CreateUserService(
